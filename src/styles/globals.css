@@ -14,3 +14,7 @@
     display: block;
   }
 }
+
+.infowindow {
+  @apply bg-blue-900 text-white block text-sm text-center h-6 rounded-md px-2 leading-6;
+}
