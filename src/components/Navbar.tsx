@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex justify-between items-center fixed w-full h-[52px] top-0 shadow-sm bg-white">
+    <div className="flex justify-between items-center fixed w-full h-[52px] top-0 shadow-sm bg-white z-10">
       <Link
         href="/"
         className="text-blue-800 text-lg font-semibold cursor-pointer px-[18px] py-0"
