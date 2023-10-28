@@ -2,6 +2,7 @@ import { useState } from "react";
 import Map from "@/components/Map";
 import Markers from "@/components/Markers";
 import * as stores from "@/data/store_data.json";
+import StoreBox from "@/components/StoreBox";
 
 const Home = () => {
   const [map, setMap] = useState(null);
@@ -15,6 +16,7 @@ const Home = () => {
         map={map}
         setSurrentStore={setSurrentStore}
       />
+      <StoreBox store={currentStore} setStore={setSurrentStore} />
     </>
   );
 };
