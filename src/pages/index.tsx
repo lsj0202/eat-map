@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Map from "@/components/Map";
 import Markers from "@/components/Markers";
-import * as stores from "@/data/store_data.json";
 import StoreBox from "@/components/StoreBox";
 import { StoreType } from "@/interface";
+import axios from "axios";
 
 const Home = ({ stores }: { stores: StoreType[] }) => {
   const [map, setMap] = useState(null);
@@ -21,12 +21,12 @@ const Home = ({ stores }: { stores: StoreType[] }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const stores = await fetch(
+  const stores = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}/api/stores`
-  ).then((res) => res.json());
+  );
 
   return {
-    props: { stores },
+    props: { stores: stores.data },
     revalidate: 60 * 60,
   };
 }
