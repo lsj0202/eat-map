@@ -3,14 +3,18 @@ import { StoreType } from "@/interface";
 import { useQuery } from "react-query";
 import axios from "axios";
 import Loading from "@/components/Loading";
+import { useRouter } from "next/router";
 
 export default function StoreListPage() {
+  const router = useRouter();
+  const { page = "1" } = router.query;
+
   const {
     data: stores,
     isLoading,
     isError,
-  } = useQuery(["stores"], async () => {
-    const { data } = await axios.get("api/stores");
+  } = useQuery(`store-${page}`, async () => {
+    const { data } = await axios.get(`api/stores?page=${page}`);
 
     return data as StoreType[];
   });
