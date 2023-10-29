@@ -2,15 +2,15 @@ import React, { Dispatch, SetStateAction, useCallback, useEffect } from "react";
 
 interface MarkerProps {
   map: any;
-  storeDatas: any[];
+  stores: any[];
   setSurrentStore: Dispatch<SetStateAction<any>>;
 }
 
-const Markers = ({ map, storeDatas, setSurrentStore }: MarkerProps) => {
+const Markers = ({ map, stores, setSurrentStore }: MarkerProps) => {
   const loadKakaoMarkers = useCallback(() => {
     if (map) {
       // 식당 데이터 마커 띄우기
-      storeDatas?.map((store) => {
+      stores?.map((store) => {
         var markerPosition = new window.kakao.maps.LatLng(
           store?.y_dnts,
           store?.x_cnts
@@ -69,7 +69,7 @@ const Markers = ({ map, storeDatas, setSurrentStore }: MarkerProps) => {
         });
       });
     }
-  }, [map, storeDatas, setSurrentStore]);
+  }, [map, stores, setSurrentStore]);
   // 의존성 배열 내부의 값이 변경하지 않는다면 이전 값을 사용 (useCallback)
 
   useEffect(() => {
