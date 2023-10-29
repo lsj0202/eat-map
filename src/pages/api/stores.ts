@@ -8,7 +8,9 @@ export default async function handler(
 ) {
   const prisma = new PrismaClient();
 
-  const stores = await prisma.store.findMany({});
+  const stores = await prisma.store.findMany({
+    orderBy: { id: "desc" },
+  });
 
   res.status(200).json(stores);
 }
