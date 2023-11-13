@@ -58,13 +58,6 @@ export default function StoreBox({ store, setStore }: StoreBoxProps) {
               {store?.category}
             </div>
           </div>
-          <button
-            type="button"
-            onClick={() => window.alert("상세보기 작업중")}
-            className="w-full bg-blue-700 hover:bg-blue-500 focus:bg-blue-500 py-3 text-white font-semibold rounded-b-lg"
-          >
-            상세보기
-          </button>
         </>
       )}
     </div>
